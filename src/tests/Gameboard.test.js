@@ -20,8 +20,8 @@ describe("board creation", () => {
 	});
 });
 
-describe("place ship", () => {
-	test("normal placement", () => {
+describe("ship placement", () => {
+	test("place big ship", () => {
 		const board = new Gameboard(5);
 		board.placeShip(5, [0, 0]);
 
@@ -35,11 +35,11 @@ describe("place ship", () => {
 	});
 	test("place small ship", () => {
 		const board = new Gameboard(5);
-		board.placeShip(2, [0, 0]);
+		board.placeShip(2, [1, 2]);
 
 		expect(board.board).toStrictEqual([
-			[1, 1, 0, 0, 0],
 			[0, 0, 0, 0, 0],
+			[0, 0, 1, 1, 0],
 			[0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0],
@@ -60,7 +60,7 @@ describe("place ship", () => {
 	});
 	test("ship already present on emplacement", () => {
 		const board = new Gameboard(5);
-		board.placeShip(2, [1, 2]);
+		board.placeShip(2, [0, 0]);
 		// board.placeShip(3, [1, 2]);
 		expect(board.board).toStrictEqual([
 			[0, 0, 0, 0, 0],

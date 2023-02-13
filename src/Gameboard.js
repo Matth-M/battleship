@@ -12,13 +12,12 @@ export class Gameboard {
 	}
 	placeShip(length, startCoordinates) {
 		const [x, y] = startCoordinates;
-		// Check if ship isn't out of bounds
 		const isInBounds = y + length <= this.size;
 		const isFree = this.#emplacementIsFree(length, startCoordinates);
 		if (isInBounds && isFree) {
 			// Horizontal placement
-			for (let i = x; i < length; i++) {
-				this.board[x][i] = 1;
+			for (let i = 0; i < length; i++) {
+				this.board[x][i + y] = 1;
 			}
 		}
 	}
