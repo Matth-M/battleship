@@ -49,6 +49,8 @@ describe("ship placement", () => {
 		// Shouldn't place ship if it is out of bounds
 		const board = new Gameboard(5);
 		board.placeShip(5, [0, 1]);
+		board.placeShip(3, [0, 4]);
+		board.placeShip(7, [6, 17]);
 
 		expect(board.board).toStrictEqual([
 			[0, 0, 0, 0, 0],
@@ -58,7 +60,7 @@ describe("ship placement", () => {
 			[0, 0, 0, 0, 0],
 		]);
 	});
-	test("ship already present on emplacement", () => {
+	test("ship already present on spot", () => {
 		const board = new Gameboard(5);
 		board.placeShip(2, [1, 2]);
 		board.placeShip(3, [1, 2]);
